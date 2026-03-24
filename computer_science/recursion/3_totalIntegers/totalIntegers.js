@@ -5,18 +5,18 @@ const totalIntegers = function (nestedArray) {
 
   let integerCount = 0;
 
-  function countIntegers(nestedArray) {
+//   function countIntegers(nestedArray) {
     for (const key in nestedArray) {
       const value = nestedArray[key];
       if (Number.isInteger(value)) {
         integerCount++;
       } else if (typeof value === "object") {
-        countIntegers(value);
+        integerCount += totalIntegers(value);
       }
     }
-  }
+//   }
 
-  countIntegers(nestedArray);
+//   countIntegers(nestedArray);
 
   return integerCount;
 };
